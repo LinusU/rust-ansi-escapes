@@ -1,0 +1,15 @@
+[package]
+name = "ansi-escapes"
+version = "0.1.0"
+authors = ["Linus Unnebäck <linus@folkdatorn.se>"]
+
+description = "Ansi escape codes for manipulating the terminal"
+homepage = "https://github.com/LinusU/rust-ansi-escapes"
+documentation = "https://docs.rs/ansi-escapes"
+repository = "https://github.com/LinusU/rust-ansi-escapes"
+keywords = ["ansi", "codes", "terminal", "tty", "vt100"]
+readme = "readme.md"
+license = "MIT"
+
+[dev-dependencies]
+tempfile = "^2.1.4"

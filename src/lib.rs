@@ -45,8 +45,8 @@ impl fmt::Display for CursorMove {
             CursorMove::X(_) => std::result::Result::Ok(()),
 
             CursorMove::XY(x, y) => {
-                try!(CursorMove::X(x).fmt(f));
-                try!(CursorMove::Y(y).fmt(f));
+                CursorMove::X(x).fmt(f)?;
+                CursorMove::Y(y).fmt(f)?;
                 std::result::Result::Ok(())
             }
 
@@ -110,11 +110,11 @@ impl fmt::Display for EraseLines {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         for idx in 0..self.0 {
             if idx > 0 {
-                try!(write!(f, "{}", CursorUp(1)));
+                write!(f, "{}", CursorUp(1))?;
             }
 
-            try!(write!(f, "{}", CursorLeft));
-            try!(write!(f, "{}", EraseEndLine));
+            write!(f, "{}", CursorLeft)?;
+            write!(f, "{}", EraseEndLine)?;
         }
 
         std::result::Result::Ok(())

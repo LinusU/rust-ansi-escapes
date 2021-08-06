@@ -25,7 +25,7 @@ impl fmt::Display for CursorTo {
         match *self {
             CursorTo::TopLeft => write!(f, "\x1B[{};{}H", 1, 1),
             CursorTo::AbsoluteX(x) => write!(f, "\x1B[{}G", x + 1),
-            CursorTo::AbsoluteXY(x, y) => write!(f, "\x1B[{};{}H", x + 1, y + 1),
+            CursorTo::AbsoluteXY(x, y) => write!(f, "\x1B[{};{}H", y + 1, x + 1),
         }
     }
 }

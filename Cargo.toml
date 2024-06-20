@@ -1,6 +1,6 @@
 [package]
 name = "ansi-escapes"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Linus Unnebäck <linus@folkdatorn.se>"]
 
 description = "Ansi escape codes for manipulating the terminal"

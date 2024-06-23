@@ -137,26 +137,18 @@ escape_code!("Exit the [alternative screen](https://terminalguide.namepad.de/mod
 escape_code!("Output a beeping sound.", Beep, "\u{0007}");
 
 #[cfg(test)]
-extern crate tempfile;
-
-#[cfg(test)]
 mod tests {
-    use tempfile::tempfile;
-    use std::fs::File;
-    use std::io::{Write, Read, Seek, SeekFrom};
+    use std::io::Write;
 
     macro_rules! assert_escape_output {
         ($name:ident, $code:expr, $expected:expr) => {
             #[test]
             fn $name() {
-                let mut file: File = tempfile().unwrap();
-                write!(file, "{}", $code).unwrap();
+                let mut buf = Vec::new();
+                write!(buf, "{}", $code).unwrap();
 
-                file.seek(SeekFrom::Start(0)).unwrap();
-
-                let mut buf = String::new();
-                file.read_to_string(&mut buf).unwrap();
-                assert_eq!($expected, buf);
+                let result = String::from_utf8(buf).unwrap();
+                assert_eq!(result, $expected);
             }
         }
     }

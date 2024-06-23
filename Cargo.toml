@@ -11,6 +11,3 @@ repository = "https://github.com/LinusU/rust-ansi-escapes"
 keywords = ["ansi", "codes", "terminal", "tty", "vt100"]
 readme = "readme.md"
 license = "MIT"
-
-[dev-dependencies]
-tempfile = "^2.1.4"

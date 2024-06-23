@@ -13,3 +13,8 @@ repository = "https://github.com/LinusU/rust-ansi-escapes"
 keywords = ["ansi", "codes", "terminal", "tty", "vt100"]
 readme = "readme.md"
 license = "MIT"
+
+[package.metadata.release]
+allow-branch = ["main"]
+pre-release-commit-message = "🚢 {{version}}"
+tag-message = "🚢 {{version}}"

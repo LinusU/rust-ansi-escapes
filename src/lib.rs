@@ -132,6 +132,8 @@ escape_code!("Scroll display up one line.", ScrollUp, "\x1B[S");
 escape_code!("Scroll display down one line.", ScrollDown, "\x1B[T");
 
 escape_code!("Clear the terminal screen.", ClearScreen, "\u{001b}c");
+escape_code!("Enter the [alternative screen](https://terminalguide.namepad.de/mode/p47/).", EnterAlternativeScreen, "\x1B[?1049h");
+escape_code!("Exit the [alternative screen](https://terminalguide.namepad.de/mode/p47/).", ExitAlternativeScreen, "\x1B[?1049l");
 escape_code!("Output a beeping sound.", Beep, "\u{0007}");
 
 #[cfg(test)]

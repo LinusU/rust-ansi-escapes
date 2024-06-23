@@ -12,7 +12,7 @@ macro_rules! escape_code {
                 write!(f, $value)
             }
         }
-    }
+    };
 }
 
 /// Set the absolute position of the cursor. x=0 y=0 is the top left of the screen.
@@ -58,7 +58,6 @@ impl fmt::Display for CursorMove {
         }
     }
 }
-
 
 /// Move cursor up a specific amount of rows.
 pub struct CursorUp(pub u16);
@@ -155,7 +154,7 @@ mod tests {
                 let result = String::from_utf8(buf).unwrap();
                 assert_eq!(result, $expected);
             }
-        }
+        };
     }
 
     assert_escape_output!(cursor_up_1, super::CursorUp(1), "\x1B[1A");

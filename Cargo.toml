@@ -3,6 +3,7 @@ name = "ansi-escapes"
 version = "0.1.1"
 authors = ["Linus Unnebäck <linus@folkdatorn.se>"]
 
+categories = ["command-line-interface"]
 description = "Ansi escape codes for manipulating the terminal"
 homepage = "https://github.com/LinusU/rust-ansi-escapes"
 documentation = "https://docs.rs/ansi-escapes"

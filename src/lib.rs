@@ -1,4 +1,6 @@
-use std::fmt;
+#![no_std]
+
+use core::fmt;
 
 macro_rules! escape_code {
     ($doc:expr, $name:ident, $value:expr) => {
@@ -42,17 +44,17 @@ impl fmt::Display for CursorMove {
         match *self {
             CursorMove::X(x) if x > 0 => write!(f, "\x1B[{}C", x),
             CursorMove::X(x) if x < 0 => write!(f, "\x1B[{}D", -x),
-            CursorMove::X(_) => std::result::Result::Ok(()),
+            CursorMove::X(_) => fmt::Result::Ok(()),
 
             CursorMove::XY(x, y) => {
                 CursorMove::X(x).fmt(f)?;
                 CursorMove::Y(y).fmt(f)?;
-                std::result::Result::Ok(())
+                fmt::Result::Ok(())
             }
 
             CursorMove::Y(y) if y > 0 => write!(f, "\x1B[{}B", y),
             CursorMove::Y(y) if y < 0 => write!(f, "\x1B[{}A", -y),
-            CursorMove::Y(_) => std::result::Result::Ok(()),
+            CursorMove::Y(_) => fmt::Result::Ok(()),
         }
     }
 }
@@ -117,7 +119,7 @@ impl fmt::Display for EraseLines {
             write!(f, "{}", EraseEndLine)?;
         }
 
-        std::result::Result::Ok(())
+        fmt::Result::Ok(())
     }
 }
 
@@ -137,8 +139,11 @@ escape_code!("Exit the [alternative screen](https://terminalguide.namepad.de/mod
 escape_code!("Output a beeping sound.", Beep, "\u{0007}");
 
 #[cfg(test)]
+extern crate std;
+
+#[cfg(test)]
 mod tests {
-    use std::io::Write;
+    use std::{io::Write, string::String, vec::Vec};
 
     macro_rules! assert_escape_output {
         ($name:ident, $code:expr, $expected:expr) => {

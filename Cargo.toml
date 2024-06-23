@@ -5,7 +5,7 @@ authors = ["Linus Unnebäck <linus@folkdatorn.se>"]
 edition = "2021"
 rust-version = "1.56"
 
-categories = ["command-line-interface"]
+categories = ["command-line-interface", "no-std"]
 description = "Ansi escape codes for manipulating the terminal"
 homepage = "https://github.com/LinusU/rust-ansi-escapes"
 documentation = "https://docs.rs/ansi-escapes"

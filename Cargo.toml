@@ -2,6 +2,8 @@
 name = "ansi-escapes"
 version = "0.1.1"
 authors = ["Linus Unnebäck <linus@folkdatorn.se>"]
+edition = "2021"
+rust-version = "1.56"
 
 categories = ["command-line-interface"]
 description = "Ansi escape codes for manipulating the terminal"
